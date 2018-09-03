@@ -1,6 +1,7 @@
 const styles = {
     container: {
-        width: '100%',
+        paddingTop: "112px",
+        width: "100%",
     }
 };
 

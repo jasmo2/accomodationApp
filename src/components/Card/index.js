@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import injectSheet from 'react-jss'
-import styles from './styles';
+import injectSheet from "react-jss"
+import styles from "./styles";
 
 class Card extends Component {
     constructor(props) {

@@ -5,7 +5,7 @@ const styles = {
         position: "relative",
     },
     imageBottom: {
-        height: '180px',
+        height: "180px",
         width: "100%",
         objectFit: "cover",
         zIndex: 0,
