@@ -30,9 +30,9 @@ class Filter extends Component {
         return (
             <div
                 className={`${this.props.classes.input} ${touchClass}`}
-                onTouchStart={this._onTouchStart}
-                onTouchEnd={this._onTouchEnd}
-                onTouchMove={this._onTouMove}
+                onTouchStart={() => this._onTouchStart}
+                onTouchEnd={() => this._onTouchEnd}
+                onTouchMove={() => this._onTouMove}
             >
                 <span></span>
                 <span>{children}</span>
