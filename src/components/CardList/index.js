@@ -3,7 +3,7 @@ import injectSheet from "react-jss"
 import styles from "./styles";
 
 import Card from "../Card";
-import { data } from '../../mock';
+// import { data } from '../../mock';
 
 class CardList extends Component {
     render() {
