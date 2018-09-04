@@ -9,7 +9,7 @@ class Modal extends Component {
         super(props);
     }
 
-    onClick() {
+    _onClick() {
         this.props.hideModal()
     }
 
@@ -17,9 +17,10 @@ class Modal extends Component {
         const { classes, modal } = this.props;
         const modalClass = modal.modalClass ? classes["modal--show"] : classes["modal--hide"];
         return (
+            // onClick={() => this._onClick}
             <div
                 className={`${classes.modal} ${modalClass}`}
-                onClick={() => this.onClick}
+                onTouchEnd={() => this._onClick()}
             >
 
             </div>

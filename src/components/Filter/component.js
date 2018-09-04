@@ -31,6 +31,7 @@ class Filter extends Component {
         return (
             <div
                 className={`${this.props.classes.input} ${touchClass}`}
+                onClick={() => this._onTouchEnd(data)}
                 onTouchStart={() => this._onTouchStart}
                 onTouchEnd={() => this._onTouchEnd(data)}
                 onTouchMove={() => this._onTouMove}

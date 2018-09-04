@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
 
 
 const mapDistapchToProps = (dispatch) => ({
-    hideModal: () => { }
+    hideModal: () => dispatch(hideModal())
 });
 
 export default connect(mapStateToProps, mapDistapchToProps)(Component);
