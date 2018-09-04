@@ -3,10 +3,11 @@ const styles = {
     modal: {
         display: "flex",
         position: "fixed",
-        transition: "background-color 0.3s ease, height 0.4s ease",
+        transition: "background-color 0.3s ease-in, height 0.4s ease-in",
     },
     "modal--hide": {
         height: "0px",
+        zIndex: 0,
     },
     "modal--show": {
         backgroundColor: "#00000091",

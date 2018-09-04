@@ -16,7 +16,7 @@ class Header extends Component {
         return (
             <header className={classes.wrapper}>
                 <Filter data={filterData.activities} type={ACTIVITY_TYPE}>I like to...</Filter>
-                <Filter data={filterData.locations} type={LOCATION_TYPE}>Where to?</Filter>
+                <Filter data={filterData.location} type={LOCATION_TYPE}>Where to?</Filter>
             </header>);
     }
 }

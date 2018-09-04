@@ -18,7 +18,7 @@ function filterData(data) {
     }
     return {
         activities: Array.from(activities),
-        locations: Array.from(locations)
+        location: Array.from(locations)
     }
 }
 class App extends Component {
