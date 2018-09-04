@@ -15,7 +15,9 @@
   "author": "jasmo2",
   "license": "ISC",
   "dependencies": {
-    "react-jss": "^7.1.0"
+    "react-jss": "^7.1.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0"
   },
   "devDependencies": {
     "babel-core": "6.26.0",

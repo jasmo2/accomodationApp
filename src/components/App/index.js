@@ -4,6 +4,7 @@ import styles from "./styles";
 
 import CardList from "../CardList";
 import Header from "../Header";
+import Modal from "../Modal";
 import { data } from "../../mock";
 
 function filterData(data) {
@@ -25,6 +26,7 @@ class App extends Component {
         const { container } = this.props.classes;
         return (
             <div className={container}>
+                <Modal />
                 <Header filterData={filterData(data)} />
                 <CardList />
             </div>
