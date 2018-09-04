@@ -16,9 +16,9 @@ class Filter extends Component {
         });
     }
 
-    _onTouchEnd(data) {
+    _onTouchEnd({ data, type }) {
         this.setState({ touchClass: "" });
-        this.props.showModal(data);
+        this.props.showModal({ data, type });
     }
 
     _onTouchMove() {
@@ -26,14 +26,14 @@ class Filter extends Component {
     }
 
     render() {
-        const { data, classes, children } = this.props;
+        const { data, classes, children, type } = this.props;
         const { touchClass } = this.state;
         return (
             <div
                 className={`${this.props.classes.input} ${touchClass}`}
-                onClick={() => this._onTouchEnd(data)}
+                onClick={() => this._onTouchEnd({ data, type })}
                 onTouchStart={() => this._onTouchStart}
-                onTouchEnd={() => this._onTouchEnd(data)}
+                onTouchEnd={() => this._onTouchEnd({ data, type })}
                 onTouchMove={() => this._onTouMove}
             >
                 <span></span>

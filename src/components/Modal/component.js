@@ -2,27 +2,27 @@ import React, { Component } from "react";
 import injectSheet from "react-jss"
 import styles from "./styles";
 
-import Card from "../Card";
+import FilterPresentation from "../FilterPresentation";
 
 class Modal extends Component {
     constructor(props) {
         super(props);
     }
 
-    _onClick() {
-        this.props.hideModal()
+    _onTouchEnd() {
+        this.props.hideModal();
     }
 
     render() {
         const { classes, modal } = this.props;
+        const { data, type } = modal;
         const modalClass = modal.modalClass ? classes["modal--show"] : classes["modal--hide"];
         return (
-            // onClick={() => this._onClick}
             <div
                 className={`${classes.modal} ${modalClass}`}
-                onTouchEnd={() => this._onClick()}
+                onTouchEnd={() => this._onTouchEnd()}
             >
-
+                <FilterPresentation data={data} type={type} />
             </div>
         );
     }

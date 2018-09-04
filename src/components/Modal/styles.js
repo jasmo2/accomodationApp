@@ -1,18 +1,17 @@
 const styles = {
 
     modal: {
-        transition: "background-color 3s ease",
+        display: "flex",
+        position: "fixed",
+        transition: "background-color 0.3s ease, height 0.4s ease",
     },
     "modal--hide": {
-        display: "none",
+        height: "0px",
     },
     "modal--show": {
         backgroundColor: "#00000091",
-        display: "block",
-        display: "flex",
         flexDirection: "column",
         height: "100vh",
-        position: "fixed",
         right: 0,
         top: 0,
         width: "100%",
