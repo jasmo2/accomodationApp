@@ -1,4 +1,4 @@
-const iconSize = "18px";
+import { ICON_SIZE as iconSize } from "../../constants";
 const styles = {
     card: {
         listStyleType: "none",

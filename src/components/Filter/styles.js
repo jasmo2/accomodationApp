@@ -1,8 +1,9 @@
+import { GRAY as gray, GRAY_L as grayLight } from "../../constants";
 const styles = {
     input: {
         alignItems: "center",
         backgroundColor: "#F5F5FF",
-        color: "#5A5A62",
+        color: gray,
         display: "flex",
         flex: "1",
         height: "112px",
@@ -12,7 +13,7 @@ const styles = {
 
         "&:active, &--touch": {
             backgroundColor: "#f5f5ffa3",
-            color: "#5a5a628c",
+            color: grayLight,
         }
     },
 };

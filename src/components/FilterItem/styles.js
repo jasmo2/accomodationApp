@@ -1,4 +1,4 @@
-const iconSize = "20px";
+import { ICON_SIZE as iconSize } from "../../constants";
 const styles = {
     item: {
         alignItems: "center",
