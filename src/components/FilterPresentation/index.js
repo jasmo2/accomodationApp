@@ -52,7 +52,7 @@ class FilterPresentation extends Component {
                     </nav>
                     <div className={classes.body}>
                         {data.map(item => (
-                            <FilterItem item={item} />
+                            <FilterItem key={item} item={item} />
                         ))}
                     </div>
                 </div>);

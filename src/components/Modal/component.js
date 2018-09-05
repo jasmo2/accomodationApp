@@ -6,9 +6,6 @@ import FilterPresentation from "../FilterPresentation";
 import { filterData as FD } from "../../utils/filterData";
 
 class Modal extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     _onTouchEnd() {
         this.props.hideModal();
@@ -24,7 +21,7 @@ class Modal extends Component {
                     className={`${classes.modal} ${modalClass}`}
                     onTouchEnd={() => this._onTouchEnd()}
                 >
-                    <FilterPresentation data={FD(data)} type={type} />
+                    <FilterPresentation key={type} data={FD(data)} type={type} />
                 </div>
             );
         }
