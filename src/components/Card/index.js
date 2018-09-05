@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
 import Component from "./component";
-import { saveLikes as SL } from "./actions";
+import { saveLikes as SL, unsaveLikes as USL } from "./actions";
 
 
 const mapDistapchToProps = (dispatch) => ({
-    saveLikes: payload => dispatch(SL(payload))
+    saveLikes: payload => dispatch(SL(payload)),
+    unsaveLikes: payload => dispatch(USL(payload))
 });
 
 

@@ -10,7 +10,7 @@ export default (state = INITIAL_STATE, action) => {
             break;
         }
         case UNSAVE_LIKES: {
-            newState.delete(country);
+            newState.delete(action.payload);
             break;
         }
         default:

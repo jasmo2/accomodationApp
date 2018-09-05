@@ -32,7 +32,7 @@ class Card extends Component {
         super(props);
         const { accomodation, cards } = props;
         this.state = {
-            liked: cards.has(accomodation.country)
+            liked: cards.has(accomodation.name)
         }
         this._onTouch = this._onTouch.bind(this);
     }
@@ -40,11 +40,11 @@ class Card extends Component {
     _onTouch() {
         const liked = !this.state.liked;
         this.setState({ liked });
-        const { country } = this.props.accomodation;
+        const { name } = this.props.accomodation;
         if (liked) {
-            this.props.saveLikes(country);
+            this.props.saveLikes(name);
         } else {
-            this.props.unsaveLikes(country);
+            this.props.unsaveLikes(name);
         }
     }
 
