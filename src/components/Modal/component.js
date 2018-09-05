@@ -3,6 +3,7 @@ import injectSheet from "react-jss"
 import styles from "./styles";
 
 import FilterPresentation from "../FilterPresentation";
+import { filterData as FD } from "../../utils/filterData";
 
 class Modal extends Component {
     constructor(props) {
@@ -14,17 +15,20 @@ class Modal extends Component {
     }
 
     render() {
-        const { classes, modal } = this.props;
-        const { data, type } = modal;
+        const { classes, modal, data } = this.props;
+        const { type } = modal;
         const modalClass = modal.modalClass ? classes["modal--show"] : classes["modal--hide"];
-        return (
-            <div
-                className={`${classes.modal} ${modalClass}`}
-                onTouchEnd={() => this._onTouchEnd()}
-            >
-                <FilterPresentation data={data} type={type} />
-            </div>
-        );
+        if (data) {
+            return (
+                <div
+                    className={`${classes.modal} ${modalClass}`}
+                    onTouchEnd={() => this._onTouchEnd()}
+                >
+                    <FilterPresentation data={FD(data)} type={type} />
+                </div>
+            );
+        }
+        return null;
     }
 }
 

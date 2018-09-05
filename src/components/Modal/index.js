@@ -3,8 +3,11 @@ import Component from "./component";
 import { hideModal } from "./actions";
 
 const mapStateToProps = (state) => {
-    const { modal } = state;
-    return { modal };
+    const { modal, app } = state;
+    return {
+        data: app.data,
+        modal,
+    };
 };
 
 const mapDistapchToProps = (dispatch) => ({

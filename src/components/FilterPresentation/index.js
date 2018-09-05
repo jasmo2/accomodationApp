@@ -27,6 +27,7 @@ function filterType(type) {
     return { typeStr, icon };
 }
 
+
 class FilterPresentation extends Component {
     constructor(props) {
         super(props);
@@ -36,11 +37,11 @@ class FilterPresentation extends Component {
         e.stopPropagation();
     }
 
-    render() {
-        const { data, classes, type } = this.props;
-        if (data && type) {
-            const { typeStr, icon } = filterType(type);
-            return (
+    Items({ obj, typeStr, icon, classes }) {
+        const items = [];
+        for (const key in obj) {
+            const data = obj[key];
+            items.push(
                 <div className={classes.wrapper} onTouchStart={(e) => this._onTouch(e)}>
                     <nav className={classes.title}>
                         <div
@@ -54,7 +55,19 @@ class FilterPresentation extends Component {
                             <FilterItem item={item} />
                         ))}
                     </div>
-                </div>
+                </div>);
+        }
+        return items;
+    }
+
+    render() {
+        const { data, classes, type } = this.props;
+        if (data && type) {
+            const { typeStr, icon } = filterType(type);
+            return (
+                <Carousel>
+                    {this.Items({ obj: data, typeStr, icon, classes })}
+                </Carousel>
             )
         }
         return null;

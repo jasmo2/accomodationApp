@@ -3,8 +3,6 @@ import Component from "./component";
 import { showModal as showModalD } from "../Modal/actions";
 
 const mapDistapchToProps = (dispatch) => ({
-    showModal: (data) => {
-        return dispatch(showModalD(data))
-    }
+    showModal: data => dispatch(showModalD(data))
 });
 export default connect(null, mapDistapchToProps)(Component);
