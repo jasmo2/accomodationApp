@@ -7,21 +7,21 @@ import checkLogo from "../../icons/check.svg";
 class Item extends Component {
     constructor(props) {
         super(props);
-        const { filters, item } = props;
+        const { filters, item, type } = props;
         this.state = {
-            selected: filters.has(item)
+            selected: filters[type].has(item)
         };
     }
 
     _onTouch(e) {
         e.stopPropagation();
         const selected = !this.state.selected;
-        const { filter, unfilter, item } = this.props;
+        const { filter, unfilter, item, type } = this.props;
         this.setState({ selected });
         if (selected) {
-            filter(item);
+            filter({ item, type });
         } else {
-            unfilter(item);
+            unfilter({ item, type });
         }
     }
 

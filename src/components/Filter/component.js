@@ -30,7 +30,7 @@ class Filter extends Component {
         const { touchClass } = this.state;
         return (
             <div
-                className={`${this.props.classes.input} ${touchClass}`}
+                className={`${classes.input} ${touchClass}`}
                 onClick={() => this._onTouchEnd({ type })}
                 onTouchStart={() => this._onTouchStart}
                 onTouchEnd={() => this._onTouchEnd({ type })}

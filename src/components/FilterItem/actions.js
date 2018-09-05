@@ -1,10 +1,10 @@
 import { FILTER, UNFILTER } from "../../constants";
-export const filter = name => ({
+export const filter = payload => ({
     type: FILTER,
-    payload: name
+    payload: payload
 });
 
-export const unfilter = name => ({
+export const unfilter = payload => ({
     type: UNFILTER,
-    payload: name
+    payload: payload
 });

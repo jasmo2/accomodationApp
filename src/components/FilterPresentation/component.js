@@ -5,7 +5,7 @@ import Carousel from "nuka-carousel";
 
 import FilterItem from "../FilterItem";
 
-import { filterType } from "../../utils/filters";
+import { filterType, slideNumber } from "../../utils/filters";
 
 
 class FilterPresentation extends Component {
@@ -20,13 +20,15 @@ class FilterPresentation extends Component {
 
     _hideModal(e) {
         e.stopPropagation();
-        this.props.hideModal();
+        const { hideModal, filters, appData } = this.props;
+        hideModal({ filters, data: appData });
     }
 
-    Items({ obj, typeStr, icon, classes }) {
+    Items({ obj, classes }) {
         const items = [];
         for (const key in obj) {
             const data = obj[key];
+            const { typeStr, icon } = filterType(key);
             items.push(
                 <div className={classes.wrapper} onTouchStart={this._onTouch}>
                     <nav className={classes.title}>
@@ -38,7 +40,7 @@ class FilterPresentation extends Component {
                     </nav>
                     <div className={classes.body}>
                         {data.map(item => (
-                            <FilterItem key={item} item={item} />
+                            <FilterItem key={item} item={item} type={typeStr} />
                         ))}
                     </div>
                 </div>);
@@ -52,8 +54,10 @@ class FilterPresentation extends Component {
             const { typeStr, icon } = filterType(type);
             return (
                 <div onTouchEnd={this._onTouch}>
-                    <Carousel>
-                        {this.Items({ obj: data, typeStr, icon, classes })}
+                    <Carousel
+                        slideIndex={slideNumber(type)}
+                    >
+                        {this.Items({ obj: data, classes })}
                     </Carousel>
                     <div className={classes.apply}>
                         <button
@@ -63,7 +67,7 @@ class FilterPresentation extends Component {
                             Apply
                         </button>
                     </div>
-                </div>
+                </div >
             )
         }
         return null;
