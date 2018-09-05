@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import injectSheet from "react-jss"
 import styles from "./styles";
-import Carousel from 'nuka-carousel';
+import Carousel from "nuka-carousel";
 
 import FilterItem from "../FilterItem";
 import { ACTIVITY_TYPE, LOCATION_TYPE } from "../../constants";

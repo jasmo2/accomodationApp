@@ -1,20 +1,10 @@
-import React, { Component } from "react";
-import injectSheet from "react-jss"
-import styles from "./styles";
+import { connect } from "react-redux";
+import Component from "./component";
 
-import Card from "../Card";
-// import { data } from '../../mock';
 
-class CardList extends Component {
-    render() {
-        const { classes } = this.props;
-        const { accomodations } = data;
-        return (
-            <ul className={classes.list}>
-                {accomodations.map(data => <Card key={data.name} accomodation={data} />)}
-            </ul>
-        );
-    }
-}
+const mapStateToProps = (state) => {
+    const { app } = state;
+    return { data: app.data };
+};
 
-export default injectSheet(styles)(CardList);
+export default connect(mapStateToProps)(Component);

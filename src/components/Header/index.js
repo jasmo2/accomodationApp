@@ -1,24 +1,10 @@
-import React, { Component } from "react";
-import injectSheet from "react-jss"
-import styles from "./styles";
-import { LOCATION_TYPE, ACTIVITY_TYPE } from "../../constants";
+import { connect } from "react-redux";
+import Component from "./component";
 
-import Filter from "../Filter";
 
-class Header extends Component {
-    constructor(props) {
-        super(props);
-    }
+const mapStateToProps = (state) => {
+    const { app } = state;
+    return { data: app.data };
+};
 
-    render() {
-        const { filterData, classes } = this.props;
-
-        return (
-            <header className={classes.wrapper}>
-                <Filter data={filterData.activities} type={ACTIVITY_TYPE}>I like to...</Filter>
-                <Filter data={filterData.location} type={LOCATION_TYPE}>Where to?</Filter>
-            </header>);
-    }
-}
-
-export default injectSheet(styles)(Header);
+export default connect(mapStateToProps)(Component);

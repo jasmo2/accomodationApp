@@ -1,4 +1,4 @@
-import { SHOW_MODAL, HIDE_MODAL } from '../../constants';
+import { SHOW_MODAL, HIDE_MODAL } from "../../constants";
 
 const INITIAL_STATE = { modalClass: false };
 

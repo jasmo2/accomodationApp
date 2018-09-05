@@ -1,4 +1,4 @@
-import { GET_DATA, ACCOMODATIONS_API } from '../../constants';
+import { GET_DATA, ACCOMODATIONS_API } from "../../constants";
 
 export const getData = (dispatch) => (
     dispatch => {
