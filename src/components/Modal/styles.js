@@ -7,6 +7,7 @@ const styles = {
     },
     "modal--hide": {
         height: "0px",
+        visibility: "hidden",
         zIndex: 0,
     },
     "modal--show": {

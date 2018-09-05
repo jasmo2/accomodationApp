@@ -1,3 +1,4 @@
+export const APPLY_FILTERS = "APPLY_FILTERS";
 export const ACTIVITY_TYPE = "ACTIVITY_TYPE";
 export const GET_DATA = "GET_DATA";
 export const HIDE_MODAL = "HIDE_MODAL";

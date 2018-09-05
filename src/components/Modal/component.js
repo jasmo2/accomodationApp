@@ -8,7 +8,8 @@ import { filterData as FD } from "../../utils/filterData";
 class Modal extends Component {
 
     _onTouchEnd() {
-        this.props.hideModal();
+        const { hideModal, filters, data } = this.props;
+        hideModal({ filters, data });
     }
 
     render() {
