@@ -3,7 +3,7 @@ import injectSheet from "react-jss"
 import styles from "./styles";
 
 import FilterPresentation from "../FilterPresentation";
-import { filterData as FD } from "../../utils/filterData";
+import { filterData as FD } from "../../utils/filters";
 
 class Modal extends Component {
 

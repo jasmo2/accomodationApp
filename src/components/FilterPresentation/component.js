@@ -4,28 +4,8 @@ import styles from "./styles";
 import Carousel from "nuka-carousel";
 
 import FilterItem from "../FilterItem";
-import { ACTIVITY_TYPE, LOCATION_TYPE } from "../../constants";
 
-import sign from "../../icons/sign.svg";
-import activities from "../../icons/activities.svg";
-
-function filterType(type) {
-    let typeStr = "";
-    let icon = null;
-    switch (type) {
-        case ACTIVITY_TYPE:
-            typeStr = "activities"
-            icon = activities;
-            break;
-        case LOCATION_TYPE:
-            typeStr = "location"
-            icon = sign;
-            break;
-        default:
-            break;
-    }
-    return { typeStr, icon };
-}
+import { filterType } from "../../utils/filters";
 
 
 class FilterPresentation extends Component {

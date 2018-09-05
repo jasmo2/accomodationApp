@@ -5,7 +5,7 @@ import { LOCATION_TYPE, ACTIVITY_TYPE } from "../../constants";
 
 import Filter from "../Filter";
 
-import { filterData as FD } from "../../utils/filterData";
+import { filterData as FD } from "../../utils/filters";
 
 class Header extends Component {
 

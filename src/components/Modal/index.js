@@ -3,10 +3,10 @@ import Component from "./component";
 import { hideModal } from "./actions";
 
 const mapStateToProps = (state) => {
-    const { modal, app, filters, filterData } = state;
+    const { modal, app, filters, filteredData } = state;
     return {
         data: app.data,
-        filterData,
+        filteredData,
         filters,
         modal,
     };
