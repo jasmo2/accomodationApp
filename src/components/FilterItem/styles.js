@@ -4,7 +4,7 @@ const styles = {
         alignItems: "center",
         borderBottom: "solid #d2d2d2 1px",
         display: "flex",
-        height: "42px",
+        height: "36px",
     },
     logo: {
         flex: 2,

@@ -11,5 +11,6 @@ export const UNFILTER = "UNFILTER";
 
 export const ACCOMODATIONS_API = "https://s3-us-west-2.amazonaws.com/selina-assignments/accommodations.json";
 export const ICON_SIZE = "18px";
+export const BLUE = "#5757d2";
 export const GRAY = "#5A5A62";
 export const GRAY_L = "#5a5a628c";

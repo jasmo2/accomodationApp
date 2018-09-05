@@ -7,7 +7,12 @@ export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case APPLY_FILTERS: {
             const { filters, data } = action.payload;
-            let accomodations = null;
+            const filtered = new Set();
+            const filteredData = [];
+            filters.forEach(filter => {
+
+            });
+
             debugger
             return Object.assign({}, state);
         }

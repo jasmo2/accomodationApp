@@ -1,5 +1,5 @@
 const iconSize = "36px";
-import { GRAY as gray } from "../../constants";
+import { GRAY as gray, BLUE as blue } from "../../constants";
 const styles = {
     wrapper: {
         backgroundColor: "white",
@@ -8,8 +8,9 @@ const styles = {
         flex: 1,
         flexDirection: "column",
         margin: "0 12px",
-        maxHeight: "75%",
+        height: "calc(100vh - 108px);",
     },
+
     title: {
         alignItems: "center",
         display: "flex",
@@ -20,15 +21,32 @@ const styles = {
         paddingLeft: "24px",
         textTransform: "uppercase",
     },
+
     body: {
         flex: 9,
         overflowY: "scroll",
         paddingLeft: "54px",
         paddingRight: "36px"
     },
+
     logo: {
         width: iconSize,
         height: iconSize
+    },
+
+    apply: {
+        backgroundColor: "white",
+        color: blue,
+        display: "flex",
+        flex: 1,
+        height: "42px",
+        justifyContent: "center",
+        margin: "0 12px",
+
+    },
+
+    button: {
+        color: "inherit"
     }
 
 };

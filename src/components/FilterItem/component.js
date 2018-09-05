@@ -16,11 +16,12 @@ class Item extends Component {
     _onTouch(e) {
         e.stopPropagation();
         const selected = !this.state.selected;
+        const { filter, unfilter, item } = this.props;
         this.setState({ selected });
         if (selected) {
-            this.props.filter(name);
+            filter(item);
         } else {
-            this.props.unfilter(name);
+            unfilter(item);
         }
     }
 
