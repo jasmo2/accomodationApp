@@ -1,14 +1,43 @@
-import { ICON_SIZE as iconSize } from "../../constants";
+import { ICON_SIZE as iconSize, GRAY as gray } from "../../constants";
 const styles = {
+    activities: {
+        alignItems: "center",
+        display: "flex",
+        height: "36px",
+        paddingLeft: "36px",
+    },
+
+    "activity": {
+        color: gray,
+        fontSize: "8px",
+        marginRight: "12px",
+        position: "relative",
+        textTransform: "uppercase",
+        "&:before": {
+            content: "'•'",
+            marginRight: "6px",
+            display: "inline-block",
+
+        },
+
+        "&:first-child:before": {
+            content: "''"
+        }
+    },
+
     card: {
         listStyleType: "none",
-        margin: "16px 0",
         position: "relative",
+        "&:first-type-of": {
+            marginTop: "18px"
+        }
     },
+
     city: {
         fontSize: "48px",
         transform: "translate(36px, 96px)",
     },
+
     country: {
         display: "flex",
         fontSize: "16px",

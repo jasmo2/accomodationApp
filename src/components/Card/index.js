@@ -64,7 +64,13 @@ class Card extends Component {
                         />
                     )}
                 </Carousel>
-
+                <section className={classes.activities}>
+                    {accomodation.activities.map(activity => (
+                        <span className={classes.activity} key={activity}>
+                            {activity}
+                        </span>
+                    ))}
+                </section>
             </li>
         )
     }

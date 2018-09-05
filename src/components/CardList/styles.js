@@ -1,6 +1,6 @@
 const styles = {
     list: {
-        margin: "16px 0",
+        marginTop: "18px",
         padding: 0
     }
 };
