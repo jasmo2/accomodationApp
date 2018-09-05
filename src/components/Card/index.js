@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import injectSheet from "react-jss"
 import styles from "./styles";
+import Carousel from "nuka-carousel";
 
 import heartBlank from "../../icons/heartBlank.svg";
 import heartFilled from "../../icons/heartFilled.svg";
@@ -51,10 +52,18 @@ class Card extends Component {
                 </div>
 
                 {heartType(this.state.liked, classes, this._onTouch)}
-                <img
-                    className={classes.imageBottom}
-                    src={accomodation.image_urls[0]} alt={accomodation.name}
-                />
+                <Carousel
+                    renderCenterLeftControls={() => null}
+                    renderCenterRightControls={() => null}
+                >
+                    {accomodation.image_urls.map(picUrl =>
+                        <img
+                            className={classes.imageBottom}
+                            key={picUrl}
+                            src={picUrl} alt={accomodation.name}
+                        />
+                    )}
+                </Carousel>
 
             </li>
         )
