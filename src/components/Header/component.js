@@ -6,7 +6,9 @@ import { LOCATION_TYPE, ACTIVITY_TYPE } from "../../constants";
 import Filter from "../Filter";
 
 import { filterData as FD } from "../../utils/filters";
+import activityIcon from "../../icons/activities.svg";
 import bagpack from "../../icons/bagpack.svg";
+import signIcon from "../../icons/sign.svg";
 
 class Header extends Component {
 
@@ -19,11 +21,18 @@ class Header extends Component {
                     <div
                         className={classes.bagpack}
                         dangerouslySetInnerHTML={{ __html: bagpack }}
-                    >
+                    />
 
-                    </div>
-                    <Filter data={activities} type={ACTIVITY_TYPE}>I like to...</Filter>
-                    <Filter data={location} type={LOCATION_TYPE}>Where to?</Filter>
+                    <Filter
+                        data={activities}
+                        icon={activityIcon}
+                        type={ACTIVITY_TYPE}
+                    >I like to...</Filter>
+                    <Filter
+                        data={location}
+                        type={LOCATION_TYPE}
+                        icon={signIcon}
+                    >Where to?</Filter>
                 </header>
             );
         }

@@ -1,4 +1,8 @@
-import { GRAY as gray, GRAY_L as grayLight } from "../../constants";
+import {
+    GRAY as gray,
+    GRAY_L as grayLight,
+    ICON_SIZE as iconSize,
+} from "../../constants";
 const styles = {
     input: {
         alignItems: "center",
@@ -16,6 +20,14 @@ const styles = {
             color: grayLight,
         }
     },
+    logo: {
+        marginRight: "16px",
+
+        "& svg": {
+            height: iconSize,
+            width: iconSize
+        }
+    }
 };
 
 export default styles;

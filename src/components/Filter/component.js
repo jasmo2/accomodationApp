@@ -26,7 +26,7 @@ class Filter extends Component {
     }
 
     render() {
-        const { classes, children, type } = this.props;
+        const { classes, children, type, icon } = this.props;
         const { touchClass } = this.state;
         return (
             <div
@@ -36,8 +36,11 @@ class Filter extends Component {
                 onTouchEnd={() => this._onTouchEnd({ type })}
                 onTouchMove={() => this._onTouMove}
             >
-                <span></span>
-                <span>{children}</span>
+                <span
+                    className={classes.logo}
+                    dangerouslySetInnerHTML={{ __html: icon }}
+                />
+                <div>{children}</div>
             </div>
         )
     }

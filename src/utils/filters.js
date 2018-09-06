@@ -2,7 +2,6 @@ import { ACTIVITY_TYPE, LOCATION_TYPE } from "../constants";
 
 import sign from "../icons/sign.svg";
 import activities from "../icons/activities.svg";
-import { filter } from "../components/FilterItem/actions";
 
 function validateKey(key) {
     switch (key) {
