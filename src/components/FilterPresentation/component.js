@@ -14,6 +14,10 @@ class FilterPresentation extends Component {
         this._onTouch = this._onTouch.bind(this);
     }
 
+    _clearFilter() {
+        this.props.clearFilter();
+    }
+
     _onTouch(e) {
         e.stopPropagation();
     }
@@ -38,6 +42,11 @@ class FilterPresentation extends Component {
                         />
                         {typeStr}
                     </nav>
+                    <div className={classes["button-wrapper"]}>
+                        <button
+                            onClick={() => this._clearFilter()}
+                        >Clear All</button>
+                    </div>
                     <div className={classes.body}>
                         {data.map(item => (
                             <FilterItem key={item} item={item} type={typeStr} />

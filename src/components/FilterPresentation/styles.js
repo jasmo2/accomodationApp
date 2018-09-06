@@ -29,6 +29,17 @@ const styles = {
         paddingRight: "36px"
     },
 
+    "button-wrapper": {
+        alignItems: "center",
+        display: "flex",
+        justifyContent: "flex-end",
+        paddingRight: "18px",
+        "& button": {
+            height: "30px",
+            width: "66px"
+        }
+    },
+
     logo: {
         width: iconSize,
         height: iconSize

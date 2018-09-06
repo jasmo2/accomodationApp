@@ -1,4 +1,4 @@
-import { FILTER, UNFILTER } from "../../constants";
+import { FILTER, UNFILTER, CLEAR_FILTER } from "../../constants";
 export const filter = payload => ({
     type: FILTER,
     payload: payload
@@ -7,4 +7,8 @@ export const filter = payload => ({
 export const unfilter = payload => ({
     type: UNFILTER,
     payload: payload
+});
+
+export const clearFilter = () => ({
+    type: CLEAR_FILTER
 });

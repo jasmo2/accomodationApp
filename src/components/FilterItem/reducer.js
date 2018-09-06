@@ -1,4 +1,4 @@
-import { FILTER, UNFILTER } from "../../constants";
+import { FILTER, UNFILTER, CLEAR_FILTER } from "../../constants";
 
 const INITIAL_STATE = {
     location: new Set(),
@@ -6,21 +6,26 @@ const INITIAL_STATE = {
 };
 
 export default (state = INITIAL_STATE, action) => {
-    const newState = INITIAL_STATE;
     switch (action.type) {
+        case CLEAR_FILTER: {
+            return {
+                location: new Set(),
+                activities: new Set()
+            };
+
+        }
         case FILTER: {
             const { type, item } = action.payload;
-            newState[type].add(item)
+            state[type].add(item)
             break;
         }
         case UNFILTER: {
             const { type, item } = action.payload;
-            newState[type].delete(item)
+            state[type].delete(item)
             break;
         }
-
         default:
             break;
     }
-    return newState;
+    return state;
 };

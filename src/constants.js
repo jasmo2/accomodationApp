@@ -6,6 +6,7 @@ export const LOCATION_TYPE = "LOCATION_TYPE";
 export const SHOW_MODAL = "SHOW_MODAL";
 export const SAVE_LIKES = "SAVE_LIKES";
 export const UNSAVE_LIKES = "UNSAVE_LIKES";
+export const CLEAR_FILTER = "CLEAR_FILTER";
 export const FILTER = "FILTER";
 export const UNFILTER = "UNFILTER";
 
