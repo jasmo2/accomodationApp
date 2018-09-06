@@ -20,7 +20,25 @@ const styles = {
             color: grayLight,
         }
     },
+
+    filter: {
+        backgroundColor: "gray",
+        borderRadius: "9%",
+        display: "inline-block",
+        marginRight: "3px",
+        padding: "3px 6px",
+
+    },
+
+    "filter__wrapper": {
+        display: "inline-flex",
+        flex: 12,
+        overflowX: "scroll",
+        height: "21px"
+    },
+
     logo: {
+        flex: 1,
         marginRight: "16px",
 
         "& svg": {

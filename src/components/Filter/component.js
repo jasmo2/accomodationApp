@@ -1,16 +1,27 @@
 import React, { Component } from "react";
 import injectSheet from "react-jss"
 import styles from "./styles";
+import { filterType } from "../../utils/filters";
+
+function filterContentValidation({ children, filter = [], classes, filteredData }) {
+    if (!filteredData || filter.size === 0) return children;
+
+    const filters = Array.from(filter).map(el => (
+        <div className={classes.filter}>
+            {el}
+        </div>
+    ));
+
+    return filters;
+}
 
 class Filter extends Component {
     constructor(props) {
         super(props);
         this.state = {
             touchClass: "",
-            filters: {
-                activities: [],
-                location: []
-            }
+            activities: [],
+            location: []
         }
     }
 
@@ -31,23 +42,28 @@ class Filter extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         const { filters: { location, activities }, filteredData } = nextProps;
+        const activitiesState = nextState.activities
+        const locationState = nextState.location;
         if (
+            (location.size > 0 || activities.size > 0) &&
+            filteredData
+        ) {
+            return true
+        } else if (
             Array.from(location).length > 0 ||
             Array.from(activities).length > 0
         ) {
             return false;
-        } else if (filteredData) {
-            debugger
-            this.setState({
-                filters: { activities, location }
-            });
         }
         return true;
     }
 
     render() {
-        const { classes, children, type, icon } = this.props;
+        const { classes, children, type, icon, filters, filteredData } = this.props;
         const { touchClass } = this.state;
+        const { typeStr } = filterType(type)
+        let filter = filters[typeStr];
+        const content = filterContentValidation({ filteredData, children, filter, classes });
 
         return (
             <div
@@ -61,7 +77,7 @@ class Filter extends Component {
                     className={classes.logo}
                     dangerouslySetInnerHTML={{ __html: icon }}
                 />
-                <div>{children}</div>
+                <div className={classes["filter__wrapper"]}>{content}</div>
             </div>
         )
     }

@@ -13,18 +13,6 @@ const styles = {
         }
     },
 
-    "dismiss--hide": {
-        "& svg": {
-            display: "none"
-        }
-    },
-
-    "dismiss--show": {
-        "& svg": {
-            display: "block"
-        }
-    },
-
     modal: {
         display: "flex",
         position: "fixed",

@@ -49,7 +49,6 @@ class Modal extends Component {
         const { classes, modal, data } = this.props;
         const { type } = modal;
         const modalClass = modal.modalClass ? classes["modal--show"] : classes["modal--hide"];
-        const dismissClass = this.state.dismiss ? classes["dismiss--show"] : classes["dismiss--hide"];
         if (data) {
             return (
                 <div
@@ -57,7 +56,7 @@ class Modal extends Component {
                     onTouchEnd={() => this._onTouchEnd()}
                 >
                     <span
-                        className={`${classes["cancel-wrapper"]} ${dismissClass}`}
+                        className={classes["cancel-wrapper"]}
                         dangerouslySetInnerHTML={{ __html: cancelButton }}
                         onTouchEnd={e => this._dismiss(e)}
                     />
