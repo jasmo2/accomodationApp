@@ -4,38 +4,65 @@ import styles from "./styles";
 
 import FilterPresentation from "../FilterPresentation";
 import { filterData as FD } from "../../utils/filters";
-import { defaultPrevent } from "../../utils/eventListeners";
+import cancelButton from "../../icons/cancelButton.svg";
 
 class Modal extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { dismiss: false };
+    }
 
     _onTouchEnd() {
         const { hideModal, filters, data } = this.props;
         hideModal({ filters, data });
     }
 
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     const cardlistEl = (document.getElementById("cardlist"));
-    //     if (!cardlistEl) return false;
-    //     if (nextProps.modal.modalClass) {
-    //         cardlistEl.addEventListener("touchstart", defaultPrevent);
-    //         cardlistEl.addEventListener("touchmove", defaultPrevent)
-    //     } else {
-    //         cardlistEl.removeEventListener("touchstart", defaultPrevent);
-    //         cardlistEl.removeEventListener("touchmove", defaultPrevent)
-    //     }
-    //     return true
-    // }
+    _dismiss(e) {
+        e.stopPropagation();
+        hideModal();
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        const { filters: { location, activities } } = nextProps;
+        if (
+            (
+                Array.from(location).length > 0 ||
+                Array.from(activities).length > 0
+            ) &&
+            !nextState.dismiss
+        ) {
+            this.setState({ dismiss: true });
+            return false;
+        }
+
+        if (
+            Array.from(location).length === 0 &&
+            Array.from(activities).length === 0 &&
+            nextState.dismiss
+        ) {
+            this.setState({ dismiss: false });
+            return false
+        }
+        return true;
+    }
 
     render() {
         const { classes, modal, data } = this.props;
         const { type } = modal;
         const modalClass = modal.modalClass ? classes["modal--show"] : classes["modal--hide"];
+        const dismissClass = this.state.dismiss ? classes["dismiss--show"] : classes["dismiss--hide"];
         if (data) {
             return (
                 <div
                     className={`${classes.modal} ${modalClass}`}
                     onTouchEnd={() => this._onTouchEnd()}
                 >
+                    <span
+                        className={`${classes["cancel-wrapper"]} ${dismissClass}`}
+                        dangerouslySetInnerHTML={{ __html: cancelButton }}
+                        onTouchEnd={e => this._dismiss(e)}
+                    />
                     <FilterPresentation key={type} data={FD(data)} type={type} />
                 </div>
             );

@@ -4,9 +4,14 @@ export const showModal = payload => ({
     payload
 });
 
-export const hideModal = payload => {
-    return dispatch => [
-        dispatch({ type: HIDE_MODAL }),
-        dispatch({ type: APPLY_FILTERS, payload })
-    ]
-}
+export const hideModal = payload => (
+    dispatch => {
+        const actions = [dispatch({ type: HIDE_MODAL })];
+        if (payload && payload.filters.length > 0) {
+            actions.push(
+                dispatch({ type: APPLY_FILTERS, payload })
+            );
+        }
+        return actions;
+    }
+)
