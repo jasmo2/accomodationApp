@@ -25,17 +25,18 @@ class Item extends Component {
         }
     }
 
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     const { filters } = nextProps;
-    //     if (
-    //         Array.from(filters.location).length === 0 &&
-    //         Array.from(filters.activities).length === 0
-    //     ) {
-    //         this.setState({ selected: false });
-    //         return false;
-    //     }
-    //     return true;
-    // }
+    shouldComponentUpdate(nextProps, nextState) {
+        const { filters: { location, activities } } = nextProps;
+        if (
+            Array.from(location).length === 0 &&
+            Array.from(activities).length === 0 &&
+            nextState.selected
+        ) {
+            this.setState({ selected: false });
+            return false;
+        }
+        return true;
+    }
 
     render() {
         const { item, classes } = this.props;
