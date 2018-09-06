@@ -76,13 +76,16 @@ export function applyFilters(filters, data) {
                     accomodation = data.accomodations.find(accomodation => {
                         return accomodation.activities.some(activity => activity === value)
                     });
+                    value = accomodation.name;
                     break;
                 }
                 default:
                     break;
             }
-            filteredFlag[validKey].add(value);
-            filteredData[validKey].push(accomodation);
+            if (!filteredFlag[validKey].has(value)) {
+                filteredFlag[validKey].add(value);
+                filteredData[validKey].push(accomodation);
+            }
             value = values.next().value;
         }
     }
