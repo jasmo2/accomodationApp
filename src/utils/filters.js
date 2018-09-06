@@ -2,6 +2,7 @@ import { ACTIVITY_TYPE, LOCATION_TYPE } from "../constants";
 
 import sign from "../icons/sign.svg";
 import activities from "../icons/activities.svg";
+import { filter } from "../components/FilterItem/actions";
 
 function validateKey(key) {
     switch (key) {
@@ -50,42 +51,59 @@ export function filterType(type) {
 /*
 * filter for each criteria,
 * then match if filters have common items
+* is all done mimicin the App behaviour
 */
 export function applyFilters(filters, data) {
     const filteredData = {};
     const filteredFlag = {};
     for (const key in filters) {
         const validKey = validateKey(key);
+        const values = filters[key].values();
+        let value = values.next().value;
+        let accomodation = null;
+
         filteredData[validKey] = [];
         filteredFlag[validKey] = new Set();
-        for (const accomodation of data.accomodations) {
+
+        while (value) {
             switch (validKey) {
                 case "name": {
-                    if (!filteredFlag[validKey].has(accomodation.name)) {
-                        filteredFlag[validKey].add(accomodation.name);
-                        filteredData[validKey].push(accomodation)
-                    }
+                    accomodation = data.accomodations.find(accomodation => {
+                        return accomodation.country === value;
+                    });
                     break;
                 }
-
                 case "activities": {
-                    const name = accomodation.name;
-                    for (let i = 0; i < accomodation.activities; i++) {
-                    }
+                    accomodation = data.accomodations.find(accomodation => {
+                        return accomodation.activities.some(activity => activity === value)
+                    });
                     break;
                 }
                 default:
                     break;
             }
-
+            filteredFlag[validKey].add(value);
+            filteredData[validKey].push(accomodation);
+            value = values.next().value;
         }
     }
+    const { name, activities } = filteredData;
 
-    return filterData;
-
+    if (name.length || activities.length === 0) {
+        return undefined;
+    } else if (name.length === 0) {
+        return activities;
+    } else if (activities.length === 0) {
+        name
+    } else {
+        const accomodations = activities.filter(accomodationActivity => {
+            return name.some(accomodationActivityName => (
+                accomodationActivityName.name === accomodationActivity.name
+            ))
+        });
+        return accomodations.length > 0 ? accomodations : undefined;
+    }
 }
-
-
 export function slideNumber(type) {
     if (type === LOCATION_TYPE) {
         return 1;

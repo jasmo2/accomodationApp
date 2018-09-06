@@ -3,8 +3,9 @@ import Component from "./component";
 
 
 const mapStateToProps = (state) => {
-    const { app } = state;
-    return { data: app.data };
+    const { app, filteredData } = state;
+    const data = filteredData || app.data;
+    return { data };
 };
 
 export default connect(mapStateToProps)(Component);
