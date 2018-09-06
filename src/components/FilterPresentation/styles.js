@@ -8,7 +8,7 @@ const styles = {
         flex: 1,
         flexDirection: "column",
         margin: "0 12px",
-        height: "calc(100vh - 108px);",
+        height: "calc(90vh - 108px);",
     },
 
     title: {
@@ -52,6 +52,14 @@ const styles = {
 
     "button--hide": {
         display: "none",
+    },
+
+    "carousel--hide": {
+        display: "none"
+    },
+
+    "carousel--show": {
+        display: "block"
     },
 
     logo: {

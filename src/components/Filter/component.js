@@ -6,7 +6,11 @@ class Filter extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            touchClass: ""
+            touchClass: "",
+            filters: {
+                activities: [],
+                location: []
+            }
         }
     }
 
@@ -25,9 +29,26 @@ class Filter extends Component {
         this.setState({ touchClass: "" });
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        const { filters: { location, activities }, filteredData } = nextProps;
+        if (
+            Array.from(location).length > 0 ||
+            Array.from(activities).length > 0
+        ) {
+            return false;
+        } else if (filteredData) {
+            debugger
+            this.setState({
+                filters: { activities, location }
+            });
+        }
+        return true;
+    }
+
     render() {
         const { classes, children, type, icon } = this.props;
         const { touchClass } = this.state;
+
         return (
             <div
                 className={`${classes.input} ${touchClass}`}

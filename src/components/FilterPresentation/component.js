@@ -65,11 +65,15 @@ class FilterPresentation extends Component {
     }
 
     render() {
-        const { data, classes, type } = this.props;
+        const { data, classes, type, modal } = this.props;
+        const modalClass = modal.modalClass ? classes["carousel--show"] : classes["carousel--hide"];
 
         if (data && type) {
             return (
-                <div onTouchEnd={this._onTouch}>
+                <div
+                    onTouchEnd={this._onTouch}
+                    className={modalClass}
+                >
                     <Carousel
                         slideIndex={slideNumber(type)}
                         dragging

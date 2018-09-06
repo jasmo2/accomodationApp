@@ -4,10 +4,11 @@ import { hideModal } from "../Modal/actions";
 import { clearFilter } from "../FilterItem/actions";
 
 const mapStateToProps = (state) => {
-    const { app, filters } = state;
+    const { app, filters, modal } = state;
     return {
         appData: app.data,
-        filters
+        filters,
+        modal
     };
 };
 
