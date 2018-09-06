@@ -35,7 +35,11 @@ class FilterPresentation extends Component {
             const data = obj[key];
             const { typeStr, icon } = filterType(key);
             items.push(
-                <div className={classes.wrapper} onTouchStart={this._onTouch}>
+                <div
+                    className={classes.wrapper}
+                    key={typeStr}
+                    onTouchStart={this._onTouch}
+                >
                     <nav className={classes.title}>
                         <div
                             className={classes.logo}
