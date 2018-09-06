@@ -20,7 +20,7 @@ class Modal extends Component {
 
     _dismiss(e) {
         e.stopPropagation();
-        hideModal();
+        this.props.hideModal();
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -34,9 +34,7 @@ class Modal extends Component {
         ) {
             this.setState({ dismiss: true });
             return false;
-        }
-
-        if (
+        } else if (
             Array.from(location).length === 0 &&
             Array.from(activities).length === 0 &&
             nextState.dismiss
