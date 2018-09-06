@@ -4,6 +4,7 @@ import styles from "./styles";
 import Carousel from "nuka-carousel";
 
 import FilterItem from "../FilterItem";
+import Button from "./Button";
 
 import { filterType, slideNumber } from "../../utils/filters";
 
@@ -43,9 +44,11 @@ class FilterPresentation extends Component {
                         {typeStr}
                     </nav>
                     <div className={classes["button-wrapper"]}>
-                        <button
+                        <Button
+                            classes={classes}
                             onClick={() => this._clearFilter()}
-                        >Clear All</button>
+                        />
+
                     </div>
                     <div className={classes.body}>
                         {data.map(item => (
@@ -59,12 +62,13 @@ class FilterPresentation extends Component {
 
     render() {
         const { data, classes, type } = this.props;
+
         if (data && type) {
-            const { typeStr, icon } = filterType(type);
             return (
                 <div onTouchEnd={this._onTouch}>
                     <Carousel
                         slideIndex={slideNumber(type)}
+                        dragging
                     >
                         {this.Items({ obj: data, classes })}
                     </Carousel>

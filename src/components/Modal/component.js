@@ -4,6 +4,7 @@ import styles from "./styles";
 
 import FilterPresentation from "../FilterPresentation";
 import { filterData as FD } from "../../utils/filters";
+import { defaultPrevent } from "../../utils/eventListeners";
 
 class Modal extends Component {
 
@@ -11,6 +12,19 @@ class Modal extends Component {
         const { hideModal, filters, data } = this.props;
         hideModal({ filters, data });
     }
+
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     const cardlistEl = (document.getElementById("cardlist"));
+    //     if (!cardlistEl) return false;
+    //     if (nextProps.modal.modalClass) {
+    //         cardlistEl.addEventListener("touchstart", defaultPrevent);
+    //         cardlistEl.addEventListener("touchmove", defaultPrevent)
+    //     } else {
+    //         cardlistEl.removeEventListener("touchstart", defaultPrevent);
+    //         cardlistEl.removeEventListener("touchmove", defaultPrevent)
+    //     }
+    //     return true
+    // }
 
     render() {
         const { classes, modal, data } = this.props;

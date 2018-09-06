@@ -11,7 +11,7 @@ class CardList extends Component {
         if (data) {
             const { accomodations } = data;
             return (
-                <ul className={classes.list}>
+                <ul className={classes.list} id="cardlist">
                     {accomodations.map(data => <Card key={data.name} accomodation={data} />)}
                 </ul>
             );

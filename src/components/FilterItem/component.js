@@ -25,6 +25,18 @@ class Item extends Component {
         }
     }
 
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     const { filters } = nextProps;
+    //     if (
+    //         Array.from(filters.location).length === 0 &&
+    //         Array.from(filters.activities).length === 0
+    //     ) {
+    //         this.setState({ selected: false });
+    //         return false;
+    //     }
+    //     return true;
+    // }
+
     render() {
         const { item, classes } = this.props;
         const selectedClass = this.state.selected ? classes["item--selected"] : classes["item--unselected"];

@@ -34,10 +34,24 @@ const styles = {
         display: "flex",
         justifyContent: "flex-end",
         paddingRight: "18px",
+        minHeight: "30px",
+
         "& button": {
+            "-webkitAppearance": "none",
+            backgroundColor: "transparent",
+            border: "transparent",
+            borderRadius: 0,
             height: "30px",
             width: "66px"
         }
+    },
+
+    "button--show": {
+        display: "block",
+    },
+
+    "button--hide": {
+        display: "none",
     },
 
     logo: {

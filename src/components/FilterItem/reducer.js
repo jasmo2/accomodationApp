@@ -17,12 +17,12 @@ export default (state = INITIAL_STATE, action) => {
         case FILTER: {
             const { type, item } = action.payload;
             state[type].add(item)
-            break;
+            return Object.assign({}, state);
         }
         case UNFILTER: {
             const { type, item } = action.payload;
             state[type].delete(item)
-            break;
+            return Object.assign({}, state);
         }
         default:
             break;
