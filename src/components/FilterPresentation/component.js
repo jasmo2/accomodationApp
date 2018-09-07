@@ -76,7 +76,8 @@ class FilterPresentation extends Component {
                 >
                     <Carousel
                         slideIndex={slideNumber(type)}
-                        dragging
+                        dragging={true}
+                        swiping={true}
                     >
                         {this.Items({ obj: data, classes })}
                     </Carousel>

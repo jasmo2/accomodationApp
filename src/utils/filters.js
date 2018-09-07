@@ -96,7 +96,7 @@ export function applyFilters(filters, data) {
     } else if (name.length === 0) {
         return activities;
     } else if (activities.length === 0) {
-        name
+        return name
     } else {
         const accomodations = activities.filter(accomodationActivity => {
             return name.some(accomodationActivityName => (

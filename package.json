@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --color --watch",
+    "start": "webpack-dev-server --color --watch --hot --host 0.0.0.0",
     "test": "test"
   },
   "keywords": [
