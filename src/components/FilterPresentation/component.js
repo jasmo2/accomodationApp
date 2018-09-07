@@ -10,17 +10,9 @@ import { filterType, slideNumber } from "../../utils/filters";
 
 
 class FilterPresentation extends Component {
-    constructor(props) {
-        super(props);
-        this._onTouch = this._onTouch.bind(this);
-    }
 
     _clearFilter() {
         this.props.clearFilter();
-    }
-
-    _onTouch(e) {
-        e.stopPropagation();
     }
 
     _hideModal(e) {
@@ -38,7 +30,6 @@ class FilterPresentation extends Component {
                 <div
                     className={classes.wrapper}
                     key={typeStr}
-                    onTouchStart={this._onTouch}
                 >
                     <nav className={classes.title}>
                         <div
@@ -72,12 +63,15 @@ class FilterPresentation extends Component {
             return (
                 <div
                     onTouchEnd={this._onTouch}
+
                     className={modalClass}
                 >
                     <Carousel
                         slideIndex={slideNumber(type)}
                         dragging={true}
                         swiping={true}
+                        renderCenterLeftControls={() => null}
+                        renderCenterRightControls={() => null}
                     >
                         {this.Items({ obj: data, classes })}
                     </Carousel>

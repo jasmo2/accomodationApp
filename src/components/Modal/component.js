@@ -13,9 +13,11 @@ class Modal extends Component {
         this.state = { dismiss: false };
     }
 
-    _onTouchEnd() {
-        const { hideModal, filters, data } = this.props;
-        hideModal({ filters, data });
+    _onTouchEnd(e, classmodal) {
+        if (e.target.classList.contains(classmodal)) {
+            const { hideModal, filters, data } = this.props;
+            hideModal({ filters, data });
+        }
     }
 
     _dismiss(e) {
@@ -53,7 +55,7 @@ class Modal extends Component {
             return (
                 <div
                     className={`${classes.modal} ${modalClass}`}
-                    onTouchEnd={() => this._onTouchEnd()}
+                    onTouchEnd={e => this._onTouchEnd(e, classes.modal)}
                 >
                     <span
                         className={classes["cancel-wrapper"]}
