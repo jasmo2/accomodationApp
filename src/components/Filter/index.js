@@ -6,7 +6,7 @@ const mapStateToProps = (state) => {
 
     const { filters, filteredData } = state;
     let filteredDataKey = filteredData
-    if (filteredData && filteredData.accomodations.lenght === 0) {
+    if (filteredData && filteredData.accomodations.length === 0) {
         filteredDataKey = null;
     }
     return { filters, filteredData: filteredDataKey };
