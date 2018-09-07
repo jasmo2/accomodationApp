@@ -3,6 +3,7 @@ import injectSheet from "react-jss"
 import styles from "./styles";
 
 import CardList from "../CardList";
+import Footer from "../Footer";
 import Header from "../Header";
 import Modal from "../Modal";
 // import { data } from "../../mock";
@@ -18,6 +19,7 @@ class App extends Component {
                 <Modal />
                 <Header />
                 <CardList />
+                <Footer />
             </div>
         )
     }
