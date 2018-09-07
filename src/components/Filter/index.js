@@ -3,8 +3,13 @@ import Component from "./component";
 import { showModal as showModalD } from "../Modal/actions";
 
 const mapStateToProps = (state) => {
+
     const { filters, filteredData } = state;
-    return { filters, filteredData };
+    let filteredDataKey = filteredData
+    if (filteredData && filteredData.accomodations.lenght === 0) {
+        filteredDataKey = null;
+    }
+    return { filters, filteredData: filteredDataKey };
 };
 
 const mapDistapchToProps = (dispatch) => ({

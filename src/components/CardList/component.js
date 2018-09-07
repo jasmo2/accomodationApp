@@ -6,6 +6,16 @@ import Card from "../Card";
 
 class CardList extends Component {
 
+    shouldComponentUpdate(nextProps, nextState) {
+        const { noFilteredData } = nextProps;
+        if (noFilteredData) {
+            const noCombinationMessage = `Your combinations doesn’t yield any results.
+            Please try a different combination of activities.`
+            alert(noCombinationMessage);
+        }
+        return true;
+    }
+
     render() {
         const { classes, data } = this.props;
         if (data) {

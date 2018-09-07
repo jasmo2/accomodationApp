@@ -91,7 +91,7 @@ export function applyFilters(filters, data) {
     }
     const { name, activities } = filteredData;
 
-    if (name.length || activities.length === 0) {
+    if (name.length === 0 && activities.length === 0) {
         return undefined;
     } else if (name.length === 0) {
         return activities;
@@ -103,7 +103,7 @@ export function applyFilters(filters, data) {
                 accomodationActivityName.name === accomodationActivity.name
             ))
         });
-        return accomodations.length > 0 ? accomodations : undefined;
+        return accomodations.length > 0 ? accomodations : [];
     }
 }
 export function slideNumber(type) {
