@@ -59,7 +59,7 @@ export function applyFilters(filters, data) {
         const validKey = validateKey(key);
         const values = filters[key].values();
         let value = values.next().value;
-        let accomodation = null;
+        let accomodations = null;
 
         filteredData[validKey] = [];
         filteredFlag[validKey] = new Set();
@@ -67,25 +67,27 @@ export function applyFilters(filters, data) {
         while (value) {
             switch (validKey) {
                 case "name": {
-                    accomodation = data.accomodations.find(accomodation => {
+                    accomodations = data.accomodations.filter(accomodation => {
                         return accomodation.country === value;
                     });
                     break;
                 }
-                case "activities": {
-                    accomodation = data.accomodations.find(accomodation => {
+                case "activities": {    
+                    accomodations = data.accomodations.filter(accomodation => {
                         return accomodation.activities.some(activity => activity === value)
                     });
-                    value = accomodation.name;
+                    
                     break;
                 }
                 default:
                     break;
             }
-            if (!filteredFlag[validKey].has(value)) {
-                filteredFlag[validKey].add(value);
-                filteredData[validKey].push(accomodation);
-            }
+            accomodations.forEach(accomodation => {
+                if (!filteredFlag[validKey].has(value)) {
+                    filteredFlag[validKey].add(accomodation.name);
+                    filteredData[validKey].push(accomodation);
+                }
+            });
             value = values.next().value;
         }
     }

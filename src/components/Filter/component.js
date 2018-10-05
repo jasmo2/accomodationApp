@@ -42,8 +42,6 @@ class Filter extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         const { filters: { location, activities }, filteredData } = nextProps;
-        const activitiesState = nextState.activities
-        const locationState = nextState.location;
         if (
             (location.size > 0 || activities.size > 0) &&
             filteredData
