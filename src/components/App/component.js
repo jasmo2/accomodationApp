@@ -6,7 +6,12 @@ import CardList from "../CardList";
 import Footer from "../Footer";
 import Header from "../Header";
 import Modal from "../Modal";
-// import { data } from "../../mock";
+
+/**
+ * @class {App}
+ *  Get data for all the app
+ *  initiate the whole application
+ */
 
 class App extends Component {
     componentWillMount() {
