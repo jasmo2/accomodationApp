@@ -7,6 +7,12 @@ import heartBlank from "../../icons/heartBlank.svg";
 import heartFilled from "../../icons/heartFilled.svg";
 import placeholder from "../../icons/placeholder.svg";
 
+/**
+ *
+ * @param {boolean} liked
+ * @param {object} classes
+ * @param {event} _onTouch
+ */
 function heartType(liked, classes, _onTouch) {
     let classesStr = "";
     let icon = null;
@@ -27,6 +33,13 @@ function heartType(liked, classes, _onTouch) {
     );
 }
 
+/**
+ * Component in charge of manage card component
+ * @class Card
+ *
+ * change liked state for card component
+ * @event _onTouch
+ */
 class Card extends Component {
     constructor(props) {
         super(props);

@@ -1,6 +1,6 @@
 /**
- * @var {styles}
- *  styles for App Component
+ * styles for App Component
+ * @function {object} styles
  */
 
 const styles = {

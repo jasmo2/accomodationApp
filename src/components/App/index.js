@@ -3,9 +3,8 @@ import Component from "./component";
 import { getData } from "./actions";
 
 /**
- *
- *  @event {getData}
- *      get data from fetch event
+ *  get data from fetch event
+ *  @function {} getData
  */
 
 const mapDistapchToProps = (dispatch) => ({

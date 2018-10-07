@@ -8,9 +8,9 @@ import Header from "../Header";
 import Modal from "../Modal";
 
 /**
- * @class {App}
  *  Get data for all the app
  *  initiate the whole application
+ * @class {} App
  */
 
 class App extends Component {

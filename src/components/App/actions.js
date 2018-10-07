@@ -2,10 +2,10 @@ import { GET_DATA, ACCOMODATIONS_API } from "../../constants";
 
 /**
  *
- *  @function {getData}
+ *  @function {} getData
  *      Makes a call from the fetch API to a 3º party code base
  *
- *  @callback {fetch}
+ *  @callback {} fetch
  */
 
 export const getData = (dispatch) => (
