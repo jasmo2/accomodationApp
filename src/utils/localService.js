@@ -1,3 +1,7 @@
+/**
+ * Parse saved data in local storage
+ * @function loadState
+ */
 export function loadState() {
     try {
         const serializedState = localStorage.getItem("state");
@@ -10,6 +14,11 @@ export function loadState() {
     }
 }
 
+/**
+ * serialize state if posible
+ * @function saveState
+ * @param {object} state
+ */
 export function saveState(state) {
     try {
         const serializedState = JSON.stringify(state);

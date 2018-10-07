@@ -1,3 +1,7 @@
+/**
+ * combine the reducers of the application
+ * @file reducers.js
+ */
 import { combineReducers } from "redux";
 import modal from "./components/Modal/reducer.js";
 import app from "./components/App/reducer.js";

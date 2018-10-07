@@ -1,8 +1,17 @@
+/**
+ * @file filters
+ * utils to validate the filters which are needed to be apply in the application
+ */
 import { ACTIVITY_TYPE, LOCATION_TYPE } from "../constants";
 
 import sign from "../icons/sign.svg";
 import activities from "../icons/activities.svg";
 
+/**
+ * returns based on the input
+ * @function validateKey
+ * @param {string} key
+ */
 function validateKey(key) {
     switch (key) {
         case "location":
@@ -12,6 +21,11 @@ function validateKey(key) {
     }
 }
 
+/**
+ * takes each accomodation and make it unique
+ * @function filterData
+ * @param {array} data
+ */
 export function filterData(data) {
     const activities = new Set();
     const locations = new Set();
@@ -27,6 +41,11 @@ export function filterData(data) {
     }
 }
 
+/**
+ * return object based on the input
+ * @function filterType
+ * @param {string} type
+ */
 export function filterType(type) {
     let typeStr = "";
     let icon = null;
@@ -47,10 +66,13 @@ export function filterType(type) {
     return { typeStr, icon };
 }
 
-/*
+/**
 * filter for each criteria,
 * then match if filters have common items
 * is all done mimicin the App behaviour
+* @function applyFilters
+* @param {object} filters
+* @param {object} data
 */
 export function applyFilters(filters, data) {
     const filteredData = {};
@@ -72,11 +94,11 @@ export function applyFilters(filters, data) {
                     });
                     break;
                 }
-                case "activities": {    
+                case "activities": {
                     accomodations = data.accomodations.filter(accomodation => {
                         return accomodation.activities.some(activity => activity === value)
                     });
-                    
+
                     break;
                 }
                 default:
@@ -108,6 +130,12 @@ export function applyFilters(filters, data) {
         return accomodations.length > 0 ? accomodations : [];
     }
 }
+
+/**
+ * return the slide number or the carousel based in the input
+ * @function slideNumber
+ * @param {string} type
+ */
 export function slideNumber(type) {
     if (type === LOCATION_TYPE) {
         return 1;

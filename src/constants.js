@@ -1,3 +1,7 @@
+/**
+ * centralize the constants use in the whole application
+ * @file constants.js
+ */
 export const APPLY_FILTERS = "APPLY_FILTERS";
 export const ACTIVITY_TYPE = "ACTIVITY_TYPE";
 export const GET_DATA = "GET_DATA";
