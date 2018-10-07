@@ -4,9 +4,16 @@ import styles from "./styles";
 
 import Card from "../Card";
 
+/**
+ * Listing component for Card component
+ *  @class {Component} CardList
+ *
+ * Basedin the filtered Data display alert about no filter combination works
+ *  @event {lifecycle} shouldComponentUpdate
+ */
 class CardList extends Component {
 
-    shouldComponentUpdate(nextProps, nextState) {
+    shouldComponentUpdate(nextProps, _) {
         const { noFilteredData } = nextProps;
         if (noFilteredData) {
             const noCombinationMessage = `Your combinations doesn’t yield any results.

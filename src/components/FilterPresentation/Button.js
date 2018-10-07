@@ -4,6 +4,10 @@ import React from "react";
 
 import { connect } from "react-redux";
 
+/**
+ * Stateless component which does not contain lifecycle events
+ * @function ButtonStateless
+ */
 const ButtonStateless = (props) => {
     const { classes, filters, onClick } = props;
     const activitiesSize = filters.activities.size;
@@ -17,6 +21,10 @@ const ButtonStateless = (props) => {
     )
 }
 
+/**
+ * filter state
+ * @param {object} state
+ */
 const mapStateToProps = (state) => {
     const { filters } = state;
     return { filters };

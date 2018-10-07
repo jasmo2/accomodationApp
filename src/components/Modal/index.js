@@ -2,6 +2,10 @@ import { connect } from "react-redux";
 import Component from "./component";
 import { hideModal } from "./actions";
 
+/**
+ *
+ *  @param {object} state
+ */
 const mapStateToProps = (state) => {
     const { modal, app, filters, filteredData } = state;
     return {
@@ -12,6 +16,10 @@ const mapStateToProps = (state) => {
     };
 };
 
+/**
+ *
+ *  @param {function} dispatch
+ */
 const mapDistapchToProps = dispatch => ({
     hideModal: payload => dispatch(hideModal(payload))
 });

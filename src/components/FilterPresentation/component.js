@@ -8,8 +8,30 @@ import Button from "./Button";
 
 import { filterType, slideNumber } from "../../utils/filters";
 
+/**
+ * Return null and is define one in memory
+ * @function nullFunc
+ */
 
+function nullFunc() { return null }
+
+/**
+ * Displays the filter carousel, as well as its header and footer
+ *  @class {Component} FilterPresentation
+ *
+ * @event _clearFilter
+ * @event _hideModal
+ *
+ * creates each item in the caousel
+ * @function Items
+ */
 class FilterPresentation extends Component {
+    constructor(props) {
+        super(props);
+
+        this._clearFilter = this._clearFilter.bind(this);
+        this._hideModal = this._hideModal.bind(this);
+    }
 
     _clearFilter() {
         this.props.clearFilter();
@@ -41,7 +63,7 @@ class FilterPresentation extends Component {
                     <div className={classes["button-wrapper"]}>
                         <Button
                             classes={classes}
-                            onClick={() => this._clearFilter()}
+                            onClick={this._clearFilter}
                         />
 
                     </div>
@@ -70,15 +92,15 @@ class FilterPresentation extends Component {
                         slideIndex={slideNumber(type)}
                         dragging={true}
                         swiping={true}
-                        renderCenterLeftControls={() => null}
-                        renderCenterRightControls={() => null}
+                        renderCenterLeftControls={nullFunc}
+                        renderCenterRightControls={nullFunc}
                     >
                         {this.Items({ obj: data, classes })}
                     </Carousel>
                     <div className={classes.apply}>
                         <button
                             className={classes.button}
-                            onClick={(e) => this._hideModal(e)}
+                            onClick={this._hideModal}
                         >
                             Apply
                         </button>
