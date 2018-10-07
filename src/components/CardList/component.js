@@ -9,7 +9,7 @@ import Card from "../Card";
  *  @class {Component} CardList
  *
  * Basedin the filtered Data display alert about no filter combination works
- *  @event {nextProps} shouldComponentUpdate
+ *  @event {lifecycle} shouldComponentUpdate
  */
 class CardList extends Component {
 
