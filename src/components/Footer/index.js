@@ -2,12 +2,16 @@ import React from "react";
 import injectSheet from "react-jss"
 import styles from "./styles";
 
-import { filterData as FD } from "../../utils/filters";
 import mapIcon from "../../icons/map.svg";
 import cardsIcon from "../../icons/cards.svg";
 import calendarIcon from "../../icons/calendar.svg";
 import profileIcon from "../../icons/sign.svg";
 
+/**
+ * Stateless component in charge to render footer icons
+ * @function Footer
+ * @param {object} props
+ */
 const Footer = (props) => {
     const { classes } = props;
     return (

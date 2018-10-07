@@ -11,11 +11,15 @@ import { filterType } from "../../utils/filters";
 function filterContentValidation({ children, filter = [], classes, filteredData }) {
     if (!filteredData || filter.size === 0) return children;
 
-    const filters = Array.from(filter).map(el => (
-        <div className={classes.filter}>
-            {el}
-        </div>
-    ));
+    const filters = Array.from(filter).map(el => {
+        const uid = new Date().getUTCMilliseconds();
+        return (
+            <div key={uid} className={classes.filter}>
+                {el}
+            </div>
+        )
+    }
+    );
 
     return filters;
 }
@@ -84,7 +88,6 @@ class Filter extends Component {
         const { typeStr } = filterType(type)
         let filter = filters[typeStr];
         const content = filterContentValidation({ filteredData, children, filter, classes });
-
         return (
             <div
                 className={`${classes.input} ${touchClass}`}
