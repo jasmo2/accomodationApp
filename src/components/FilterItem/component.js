@@ -4,6 +4,13 @@ import styles from "./styles";
 
 import checkLogo from "../../icons/check.svg";
 
+/**
+ * Component that displays each item in the filter.
+ * @class {Component} Item
+ *
+ * handle which item is selected before apply the filter
+ * @event {} _onTouch
+ */
 class Item extends Component {
     constructor(props) {
         super(props);
@@ -11,6 +18,7 @@ class Item extends Component {
         this.state = {
             selected: filters[type].has(item)
         };
+        this._onTouch = this._onTouch.bind(this);
     }
 
     _onTouch(e) {
@@ -44,7 +52,7 @@ class Item extends Component {
         return (
             <div
                 className={classes.item}
-                onTouchEnd={e => this._onTouch(e)}
+                onTouchEnd={this._onTouch}
             >
                 <div className={classes.text}>{item}</div>
                 <div
