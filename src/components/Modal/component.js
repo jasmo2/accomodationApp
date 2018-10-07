@@ -6,16 +6,28 @@ import FilterPresentation from "../FilterPresentation";
 import { filterData as FD } from "../../utils/filters";
 import cancelButton from "../../icons/cancelButton.svg";
 
+/**
+ * Class that handles the hide or show of the Modal Component
+ * @class {Component} Modal
+ *
+ * after touch has ended
+ * @event _onTouchEnd
+ * prevent event propagation to its parent
+ * @event _dismiss
+ * prevent rerender if filter validation does not criteria
+ * @function {lifecycle} shouldComponentUpdate
+ */
 class Modal extends Component {
-
     constructor(props) {
         super(props);
         this.state = { dismiss: false };
+        this._onTouchEnd = this._onTouchEnd.bind(this);
+        this._dismiss = this._dismiss.bind(this);
     }
 
-    _onTouchEnd(e, classmodal) {
-        if (e.target.classList.contains(classmodal)) {
-            const { hideModal, filters, data } = this.props;
+    _onTouchEnd(e) {
+        const { hideModal, filters, data, classes } = this.props;
+        if (e.target.classList.contains(classes.classmodal)) {
             hideModal({ filters, data });
         }
     }
@@ -55,12 +67,12 @@ class Modal extends Component {
             return (
                 <div
                     className={`${classes.modal} ${modalClass}`}
-                    onTouchEnd={e => this._onTouchEnd(e, classes.modal)}
+                    onTouchEnd={this._onTouchEnd}
                 >
                     <span
                         className={classes["cancel-wrapper"]}
                         dangerouslySetInnerHTML={{ __html: cancelButton }}
-                        onTouchEnd={e => this._dismiss(e)}
+                        onTouchEnd={this._dismiss}
                     />
                     <FilterPresentation key={type} data={FD(data)} type={type} />
                 </div>
