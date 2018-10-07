@@ -1,7 +1,10 @@
 import { connect } from "react-redux";
 import Component from "./component";
 
-
+/**
+ * recieve income filter parameters
+ *  @param {object} state
+ */
 const mapStateToProps = (state) => {
     const { app, filteredData } = state;
     let data = app.data;

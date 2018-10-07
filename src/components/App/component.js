@@ -10,7 +10,7 @@ import Modal from "../Modal";
 /**
  *  Get data for all the app
  *  initiate the whole application
- * @class {} App
+ * @class {Component} App
  */
 
 class App extends Component {

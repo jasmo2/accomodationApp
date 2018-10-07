@@ -35,10 +35,10 @@ function heartType(liked, classes, _onTouch) {
 
 /**
  * Component in charge of manage card component
- * @class Card
+ *  @class {Component} Card
  *
  * change liked state for card component
- * @event _onTouch
+ *  @event _onTouch
  */
 class Card extends Component {
     constructor(props) {
