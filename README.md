@@ -1,4 +1,8 @@
 # accomodationApp
 
-The main propouse of the app was to duplicate home page of the mobile-application in web-mobile.
+This mock application replicates the homepage for a hostel application.
+
+`npm i`
+
+`npm start`
 
